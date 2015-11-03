@@ -8,4 +8,15 @@ LinkedList.prototype.push = function(val){
     value: val,
     next: null
   }
+  if(!this.head){
+    this.head = node;
+  } else{
+    //we traverse until there is nothing and we add our new node at the end of list
+    current = this.head;
+    //while there are nodes
+    while(current.next){
+      current = current.next;
+    }
+    current.next = node;
+  }
 }
