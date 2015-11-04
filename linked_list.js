@@ -26,5 +26,18 @@ LinkedList.prototype.remove = function(val){
   //your targeted node is in the head. Need to replace head with the next node
   if(current.value == val){
     this.head = current.next;
+  } else {
+    //they are the same 
+    var previous = current;
+    while(current.next){
+      //your target node is in the middle of linked list so make the node after your targeted node to be the next node of the node 
+      //before your targeted node (you are making middle node dissapear used to be a-b-c now a-c since a isnt pointing to b anymore)
+      if(current.value == val){
+        previous.next = current.next;
+        break;
+      }
+      previous = current;
+      current = current.next;
+    }
   }
 }
