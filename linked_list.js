@@ -20,3 +20,11 @@ LinkedList.prototype.push = function(val){
     current.next = node;
   }
 }
+
+LinkedList.prototype.remove = function(val){
+  var current = this.head;
+  //your targeted node is in the head. Need to replace head with the next node
+  if(current.value == val){
+    this.head = current.next;
+  }
+}
