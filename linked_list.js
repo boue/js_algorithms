@@ -39,5 +39,10 @@ LinkedList.prototype.remove = function(val){
       previous = current;
       current = current.next;
     }
+    //target node is in the tail, remove it from the tail. Next on the node before the tail will be null.
+    //since current.next checked for every node with a node next to it that means its the tail
+    if(current.value == val){
+      previous.next = null;
+    }
   }
 }
