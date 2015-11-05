@@ -5,5 +5,9 @@ function mergeSort(arr){
     return arr;
   }
 
+  var middle = parseInt(arr.length / 2);
+  //split into left of middle and right of middle
+  var left = arr.slice(0, middle);
+  var right = arr.slice(middle, arr.length);
   
 };
