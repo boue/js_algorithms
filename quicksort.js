@@ -38,6 +38,10 @@ function quicksort(items, left, right){
 
   //If there are two or more items in the array then it is partitioned.
   if (items.length > 1){
+
+    left = typeof left != "number" ? 0 : left;
+    right = typeof right != "number" ? items.length - 1 : right;
+
     index = partition(items, left, right);
 
     if (left < index - 1){
@@ -48,6 +52,7 @@ function quicksort(items, left, right){
       quicksort(items, index, right);
     }
   }
+  //array is returned as result
   return items;
 }
 
