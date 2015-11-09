@@ -1,3 +1,6 @@
+//code.stephenmorley.org
+function Queue(){var a=[],b=0;this.getLength=function(){return a.length-b};this.isEmpty=function(){return 0==a.length};this.enqueue=function(b){a.push(b)};this.dequeue=function(){if(0!=a.length){var c=a[b];2*++b>=a.length&&(a=a.slice(b),b=0);return c}};this.peek=function(){return 0<a.length?a[b]:void 0}};
+
 //constructor for Node
 function Node(data){
   this.data = data;
@@ -39,7 +42,31 @@ Tree.prototype.traverseBF = function(callback){
   }
 };
 
-Tree.
+Tree.prototype.contains = function(callback, traversal){
+  //binds to tree that called it and callback function is invoked on every node in tree
+  traversal.call(this, callback);
+};
+
+Tree.prototype.add = function(data, toData, traversal){
+  //toData is to compare against every node in tree
+  var child = new Node(data), 
+      parent = null,
+      //callback to reassign parent
+      callback = function(node){
+        if (node.data === toData){
+          parent = node;
+        }
+      };
+  //comparison happens here
+  this.contains(callback, traversal);
+
+  if(parent){
+    parent.children.push(child);
+    child.parent = parent;
+  } else {
+    throw new Error('Cannot add node to a non-existent parent. ');
+  }
+};
 
 var tree = new Tree('one');
 
@@ -61,3 +88,10 @@ tree._root.children[0].children[1].parent = tree._root.children[0];
  
 tree._root.children[2].children.push(new Node('seven'));
 tree._root.children[2].children[0].parent = tree._root.children[2];
+
+//log to console all nodes contain data with an odd number and traverse every node in tree BFS
+tree.contains(function(node){
+  if(node.data === 'two'){
+    console.log(node);
+  }
+}, tree.traverseBF);
