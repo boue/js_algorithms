@@ -68,6 +68,44 @@ Tree.prototype.add = function(data, toData, traversal){
   }
 };
 
+function findIndex(arr, data) {
+    var index;
+ 
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].data === data) {
+          index = i;
+      }
+    }
+    return index;
+};
+
+Tree.prototype.remove = function(data, fromData, traversal){
+  var tree = this,
+      parent = null,
+      childToRemove = null,
+      index;
+  var callback = function(node){
+    if(node.data === fromData){
+      parent = node;
+    }
+  };
+
+  this.contains(callback, traversal);
+
+  if (parent){
+    index = findIndex(parent.children, data);
+
+    if (index === undefined){
+      throw new Error('Node to remove does not exist. ');
+    } else{
+      childToRemove = parent.children.splice(index, 1);
+    }
+  } else {
+    throw new Error('Parent does not exist. ');
+  }
+  return childToRemove;
+};
+
 var tree = new Tree('one');
 
 //push new node to children then set it's pointer to _root -> var tree
