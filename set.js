@@ -5,7 +5,6 @@
 
 function Set(){
   this.dataStore = [];
-  this.add = add;
   this.remove = remove;
   this.size = size;
   this.union = union;
@@ -13,4 +12,13 @@ function Set(){
   this.subset = subset;
   this.difference = difference;
   this.show = show;
+}
+
+Set.prototype.add = function(data){
+  if (this.dataStore.indexOf(data) < 0){
+    this.dataStore.push(data);
+    return true;
+  } else {
+    return false;
+  }
 }
