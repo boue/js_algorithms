@@ -30,6 +30,27 @@ Set.prototype.show = function(){
   return this.dataStore;
 }
 
+Set.prototype.contains(data) = function(){
+  if (this.dataStore.indexOf(data) > -1){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+Set.prototype.union(set) = function(){
+  var tempSet = new Set();
+  for (var i = 0; i < this.dataStore.length; ++i){
+    tempSet.add(this.dataStore[i]);
+  }
+  for (var i = 0; i < set.dataStore.length; ++i){
+    if (!tempSet.contains(set.dataStore[i])){
+      tempSet.dataStore.push(set.dataStore[i]);
+    }
+  }
+  return tempSet;
+}
+
 var names = new Set(); 
 names.add("David"); names.add("Jennifer"); names.add("Cynthia"); names.add("Mike"); names.add("Raymond");
 console.log(names.show());
