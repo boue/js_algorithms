@@ -71,6 +71,16 @@ Set.prototype.subsect(set){
   return true;
 }
 
+Set.prototype.difference(set) = function(){
+  var tempSet = new Set();
+  for (var i = 0; i < this.dataStore.length; ++i){
+    if (!set.contains(this.dataStore[i])){
+      tempSet.add(this.dataStore[i]);
+    }
+  }
+  return tempSet;
+}
+
 var names = new Set(); 
 names.add("David"); names.add("Jennifer"); names.add("Cynthia"); names.add("Mike"); names.add("Raymond");
 console.log(names.show());
