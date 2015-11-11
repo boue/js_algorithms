@@ -5,13 +5,6 @@
 
 function Set(){
   this.dataStore = [];
-  this.remove = remove;
-  this.size = size;
-  this.union = union;
-  this.intersect = intersect;
-  this.subset = subset;
-  this.difference = difference;
-  this.show = show;
 }
 
 Set.prototype.add = function(data){
@@ -22,3 +15,21 @@ Set.prototype.add = function(data){
     return false;
   }
 }
+
+Set.prototype.remove = function(data){
+  var pos = this.dataStore.indexOf(data);
+  if (pos > -1){
+    this.dataStore.splice(pos,1);
+    return true;
+  } else {
+    return false;
+  }
+}
+
+Set.prototype.show = function(){
+  return this.dataStore;
+}
+
+var names = new Set(); 
+names.add("David"); names.add("Jennifer"); names.add("Cynthia"); names.add("Mike"); names.add("Raymond");
+console.log(names.show());
