@@ -51,6 +51,26 @@ Set.prototype.union(set) = function(){
   return tempSet;
 }
 
+Set.prototype.size(){
+  return this.dataStore.length;
+}
+
+//if original set is bigger than set we are checking on then it can't be a subset
+//as well then we make sure each member in original set is in bigger set if so return true if not then false
+Set.prototype.subsect(set){
+  if (this.size() > set.size()){
+    return false;
+  }
+  else {
+    for each (var member in this.dataStore){
+      if (!set.contains(member)){
+        return false
+      }
+    }
+  }
+  return true;
+}
+
 var names = new Set(); 
 names.add("David"); names.add("Jennifer"); names.add("Cynthia"); names.add("Mike"); names.add("Raymond");
 console.log(names.show());
