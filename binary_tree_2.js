@@ -60,22 +60,28 @@ BST.prototype.inOrder = function(node){
 }
 
 //pre - NLR
+BST.prototype.preOrder = function(node){
+  if (!(node == null)){
+    console.log(node.show() + " ");
+    preOrder(node.left);
+    preOrder(node.right);
+  }
+}
+
 //post order is LRN
 BST.prototype.postOrder = function(node){
   if (!(node == null)){
     this.postOrder(node.left);
     this.postOrder(node.right);
-    console.log(node.show() = " ");
+    console.log(node.show() + " ");
   }
 }
 
-var nums = new BST();
-nums.insert(23);
-nums.insert(45);
-nums.insert(16);
-nums.insert(37);
-nums.insert(3);
-nums.insert(99);
-nums.insert(22);
-console.log("Inorder traversal : ");
-nums.inOrder(nums.root);
+
+
+
+
+
+
+
+
