@@ -13,7 +13,7 @@ function Node(data, left, right){
 }
 
 Node.prototype.show = function(){
-  this.data;
+  return this.data;
 }
 
 //class for Binary Search Tree
@@ -77,6 +77,16 @@ BST.prototype.postOrder = function(node){
   }
 }
 
+var nums = new BST();
+nums.insert(23);
+nums.insert(45);
+nums.insert(16);
+nums.insert(37);
+nums.insert(3);
+nums.insert(99);
+nums.insert(22);
+console.log("Inorder traversal: ");
+nums.inOrder(nums.root);
 
 
 
