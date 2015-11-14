@@ -16,6 +16,10 @@ Node.prototype.show = function(){
   return this.data;
 }
 
+Node.prototype.remove = function(data){
+  root = removeNode(this.root, data)
+}
+
 //class for Binary Search Tree
 function BST(){
   this.root = null;
@@ -76,6 +80,8 @@ BST.prototype.postOrder = function(node){
     console.log(node.show() + " ");
   }
 }
+
+
 
 var nums = new BST();
 nums.insert(23);
