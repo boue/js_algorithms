@@ -1,3 +1,5 @@
+//great when array is sorted (must be sorted)
+
 function binaryIndexOf(searchElement){
   'use strict';
 
@@ -19,4 +21,28 @@ function binaryIndexOf(searchElement){
     }
   }
   return -1;
+}
+
+// other implementation which this time accepts an array
+function binSearch(arr, data){
+  var upperBound = arr.length-1;
+  var lowerbound = 0;
+  while (lowerbound <= upperBound){
+    var mid = Math.floor((upperBound + lowerbound) / 2);
+    if (arr[mid] < data){
+      lowerbound = mid + 1;
+    } else if (arr[mid] > data){
+      upperBound = mid - 1;
+    } else {
+      return mid;
+    }
+  }
+  return -1;
+}
+
+
+function count(arr, data){
+  var count = 0;
+  var position
+
 }

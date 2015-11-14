@@ -1,3 +1,6 @@
+//issue with mergesort is if we are trying to sort very large data set using this algorithm, the amount of space we need
+//of space required to store two merged subarrays can be large
+
 var arr = [21, 1112, 3, 746, 198, 8990, 198, 24, 9];
 
 function mergeSort(arr){
