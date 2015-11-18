@@ -1,5 +1,5 @@
 //great when array is sorted (must be sorted)
-
+//divide and conquer, pick one middle and if number is smaller then search on the left side of it
 function binaryIndexOf(searchElement){
   'use strict';
 

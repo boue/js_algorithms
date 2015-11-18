@@ -4,6 +4,8 @@
 //depth of a tree is number of layers in a tree
 //binary search tree has lesser value on left node with right node having bigger value
 //remove or insert in big 0 (logn)
+//it is unbalanced once it always goes to the left or right thats like a linked list and would be big O(n)
+
 //class for Node
 function Node(data, left, right){
   this.data = data;
@@ -18,6 +20,33 @@ Node.prototype.show = function(){
 
 Node.prototype.remove = function(data){
   root = removeNode(this.root, data)
+}
+
+Node.prototype.removeNode = function(node, data){
+  if (node == null){
+    return null;
+  } else if (data == node.data){
+    //node has no children
+    if (node.left == null && node.right == null){
+      return null;
+    } //node has no left child
+    if (node.left == null){
+      return node.right;
+    } //node has no right child
+    if (node.right == null){
+      return node.left;
+    } // node has two children
+    var tempNode = getSmallest(node.right);
+    node.data = tempNode.data;
+    node.right = removeNode(node.right, tempNode.data);
+    return node;
+  } else if (data < node.data){
+    node.left = removeNode(node.left, data);
+    return node;
+  } else {
+    node.right = removeNode(node.right, data);
+    return node;
+  }
 }
 
 //class for Binary Search Tree
