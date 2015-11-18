@@ -3,7 +3,7 @@
 //node without child nodes is called a leaf node 
 //depth of a tree is number of layers in a tree
 //binary search tree has lesser value on left node with right node having bigger value
-
+//remove or insert in big 0 (logn)
 //class for Node
 function Node(data, left, right){
   this.data = data;
