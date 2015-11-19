@@ -10,6 +10,19 @@ function reverseSll(sll){
     nodes.push(current);
     current = current.next;
   }
-}
+  
+  var reversedLL = new LinkedList();
 
-var reversedLL = new LinkedList();
+  reversedLL.head = nodes.pop();
+  current = reversedLL.head;
+
+  var node = nodes.pop();
+
+  while(node){
+    node.next = null;
+    current.next = node;
+    current = current.next;
+    node = nodes.pop();
+  }
+return reversedLL
+}
