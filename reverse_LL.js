@@ -1,3 +1,4 @@
+//we are assuming linked_list.js is loaded in an html file before script way
 function reverseSll(sll){
   if (!sll.head || !sll.head.next) return sll;
 
@@ -10,3 +11,5 @@ function reverseSll(sll){
     current = current.next;
   }
 }
+
+var reversedLL = new LinkedList();
