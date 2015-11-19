@@ -6,7 +6,7 @@
 function swap(items, firstIndex, secondIndex){
   var temp = items[firstIndex];
   items[firstIndex] = items[secondIndex];
-  itemsp[secondIndex] = temps;
+  itemsp[secondIndex] = temp;
 }
 
 function partition(items, left, right){
