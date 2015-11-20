@@ -47,3 +47,35 @@ LinkedList.prototype.remove = function(val){
     }
   }
 }
+
+function kthFromEnd(sll, k){
+  var node = sll.head,
+  var i = 0;
+  var kthNode;
+  if (k <= 0){
+    return;
+  }
+  while (node){
+    if(i == k) {
+      kthNode = sll.head;
+    } else if (i-k > 0) {
+      kthNode = kthNode.next;
+    }
+    i++;
+    node = node.next;
+  }
+  return kthNode;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
