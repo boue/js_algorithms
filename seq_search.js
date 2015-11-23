@@ -1,9 +1,9 @@
 var seqSearch(arr, data){
   for(var i = 0; i < arr.length; i++){
     if(arr[i] == data){
-      return true;
+      return i;
     } else {
-      return false;
+      return -1;
     }
   }
 }
