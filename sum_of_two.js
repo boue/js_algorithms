@@ -9,3 +9,20 @@ function sumFinder(arr, sum){
   }
   return false;
 }
+
+//make it better here
+
+function sumFinder2(arr, sum){
+  var difference = {},
+      len = arr.length,
+      subtract;
+  for(var i = 0; i < len; i++){
+    subtract = sum - arr[i];
+
+    if(difference[subtract])
+      return true;
+    else
+      difference[arr[i]] = true;
+  }
+  return false;
+}
