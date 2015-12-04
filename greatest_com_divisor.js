@@ -1,0 +1,1 @@
+function greatestCommonDiv(a,b)
