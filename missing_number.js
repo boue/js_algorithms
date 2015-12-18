@@ -7,4 +7,5 @@ function missingNumber(arr){
     sum += arr[i];
   }
   
+  return expectedSum - sum;
 }
